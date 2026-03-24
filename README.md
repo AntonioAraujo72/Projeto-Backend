@@ -1,117 +1,111 @@
 Backend API - Project Root
-Descrição
+
+1. Descrição
 Este projeto é uma API backend desenvolvida em Node.js utilizando Express e Sequelize, com integração a banco de dados relacional (PostgreSQL). A aplicação segue uma arquitetura organizada em camadas (controllers, services, models, routes), com foco em escalabilidade, manutenção e separação de responsabilidades.
 
 A API fornece funcionalidades para gerenciamento de usuários, autenticação, categorias e produtos, incluindo suporte a opções e imagens de produtos.
 
-Tecnologias Utilizadas
-Node.js
-Express
-Sequelize ORM
-PostgreSQL
-JWT (JSON Web Token) para autenticação
-Bcrypt para hashing de senhas
-Swagger para documentação de API
-Jest e Supertest para testes
-Requisitos
-Node.js (versão 16 ou superior recomendada)
-PostgreSQL
-NPM ou Yarn
-Instalação
+2. Tecnologias Utilizadas
+Runtime: Node.js (v16+)
+
+Framework: Express
+
+ORM: Sequelize
+
+Banco de Dados: PostgreSQL
+
+Autenticação: JWT (JSON Web Token) e Bcrypt para hashing de senhas
+
+Documentação: Swagger (OpenAPI)
+
+Testes: Jest e Supertest
+
+3. Requisitos e Instalação
+3.1. Pré-requisitos
+Node.js instalado.
+
+Instância do PostgreSQL em execução.
+
+Gerenciador de pacotes NPM ou Yarn.
+
+3.2. Instalação
 Clone o repositório:
+
+Bash
 git clone <url-do-repositorio>
 cd project-root
 Instale as dependências:
 
+Bash
 npm install
-Configuração
-Configure as variáveis de ambiente:
 
-Crie ou edite o arquivo .env na raiz do projeto com as seguintes variáveis:
+4. Configuração e Execução
+4.1. Variáveis de Ambiente
+Crie um arquivo .env na raiz do projeto e configure as seguintes variáveis:
 
-DB_HOST=localhost DB_USER=seu_usuario DB_PASS=sua_senha DB_NAME=nome_do_banco DB_PORT=5432 JWT_SECRET=sua_chave_secreta
+Snippet de código
+DB_HOST=localhost
+DB_USER=seu_usuario
+DB_PASS=sua_senha
+DB_NAME=nome_do_banco
+DB_PORT=5432
+JWT_SECRET=sua_chave_secreta
+4.2. Banco de Dados
+Execute as migrações para criar as tabelas no PostgreSQL:
 
-Execute as migrações (caso utilize sequelize-cli):
-
+Bash
 npx sequelize-cli db:migrate
-Execução
-Ambiente de desenvolvimento
+4.3. Scripts Disponíveis
+Desenvolvimento: npm run dev (executa com Nodemon para recarregamento automático).
 
-npm run dev
-Ambiente de produção
+Produção: npm start (executa o servidor de forma estável).
 
-npm start
-A aplicação será iniciada em:
+Testes: npm test (executa a suíte de testes com Jest).
 
-http://localhost:3000
+5. Estrutura do Projeto
+O projeto segue uma estrutura modular para facilitar a manutenção:
 
-Documentação
-A documentação da API pode ser acessada em:
+Plaintext
+src/
+├── app.js           # Configuração principal do Express
+├── server.js        # Inicialização do servidor
+├── config/          # Configurações de banco de dados e globais
+├── controllers/     # Lógica de controle e resposta das rotas
+├── services/        # Regras de negócio e comunicação com o DB
+├── models/          # Definição das tabelas (Sequelize)
+├── database/        # Migrations e sementes do banco
+├── routes/          # Definição de endpoints da API
+└── middleware/      # Interceptadores (Autenticação, Logs, etc.)
 
+6. Documentação e Uso da API
+6.1. Swagger
+Com a aplicação rodando, acesse a documentação interativa em:
 http://localhost:3000/api-docs
 
-Estrutura do Projeto src/ ├── app.js # Configuração principal do Express ├── server.js # Inicialização do servidor ├── config/ │ └── database.js # Configuração do banco de dados ├── controllers/ # Controladores da aplicação ├── services/ # Regras de negócio ├── models/ # Modelos do Sequelize ├── database/ # Inicialização do ORM ├── routes/ # Definição das rotas ├── middleware/ # Middlewares (ex: autenticação)
+6.2. Exemplos de Requisição
+Autenticação (POST /login)
 
-Funcionalidades
-Autenticação de usuários com JWT
+Payload:
 
-Cadastro e gerenciamento de usuários
+JSON
+{
+  "email": "usuario@email.com",
+  "password": "senha"
+}
+Resposta: {"token": "jwt_token_aqui"}
 
-CRUD de categorias
+Acesso a Rotas Protegidas
+Para rotas que exigem login, inclua o token no Header:
+Authorization: Bearer <seu_token_aqui>
 
-CRUD de produtos
+7. Boas Práticas Adotadas
+Separação de Responsabilidades: Arquitetura inspirada em MVC com camada extra de Services.
 
-Suporte a imagens e opções de produtos
+Segurança: Proteção de dados sensíveis via .env e senhas criptografadas com Bcrypt.
 
-Proteção de rotas com middleware de autenticação
+Escalabilidade: Estrutura de pastas preparada para o crescimento modular.
 
-Exemplos de Uso da API
-Autenticação
-POST /login
+Confiabilidade: Cobertura de funcionalidades através de testes automatizados.
 
-Exemplo de payload:
-
-{ "email": "usuario@email.com", "password": "senha" }
-
-Resposta:
-
-{ "token": "jwt_token_aqui" }
-
-Exemplo de rota protegida GET /products Authorization: Bearer
-
-Documentação da API
-A documentação Swagger pode ser acessada em:
-
-http://localhost:3000/api-docs
-
-Testes
-Para executar os testes:
-
-npm test
-Contribuição
-Fork o projeto
-
-Crie uma branch para sua feature:
-
-git checkout -b minha-feature
-Commit suas alterações:
-
-git commit -m "Minha nova feature"
-Push para o repositório:
-
-git push origin minha-feature
-Abra um Pull Request
-
-Boas Práticas Adotadas
-Separação de responsabilidades (MVC + Services)
-
-Uso de middlewares para autenticação
-
-Organização modular do código
-
-Uso de variáveis de ambiente
-
-Estrutura escalável para crescimento da aplicação
-
-Licença
+8. Licença
 Este projeto está sob a licença ISC.
