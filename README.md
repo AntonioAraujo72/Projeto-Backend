@@ -1,4 +1,4 @@
-## Backend API - Project Root
+# Backend API - Project Root
 
 1. # Descrição
 Este projeto é uma API backend desenvolvida em Node.js utilizando Express e Sequelize, com integração a banco de dados relacional (PostgreSQL). A aplicação segue uma arquitetura organizada em camadas (controllers, services, models, routes), com foco em escalabilidade, manutenção e separação de responsabilidades.
@@ -80,7 +80,7 @@ src/
 6. # Documentação e Uso da API
 6.1. Swagger
 Com a aplicação rodando, acesse a documentação interativa em:
-http://localhost:3000/api-docs
+""http://localhost:3000/api-docs""
 
 6.2. Exemplos de Requisição
 Autenticação (POST /login)
