@@ -1,11 +1,11 @@
-Backend API - Project Root
+## Backend API - Project Root
 
-1. Descrição
+1. # Descrição
 Este projeto é uma API backend desenvolvida em Node.js utilizando Express e Sequelize, com integração a banco de dados relacional (PostgreSQL). A aplicação segue uma arquitetura organizada em camadas (controllers, services, models, routes), com foco em escalabilidade, manutenção e separação de responsabilidades.
 
 A API fornece funcionalidades para gerenciamento de usuários, autenticação, categorias e produtos, incluindo suporte a opções e imagens de produtos.
 
-2. Tecnologias Utilizadas
+2. # Tecnologias Utilizadas
 Runtime: Node.js (v16+)
 
 Framework: Express
@@ -20,7 +20,7 @@ Documentação: Swagger (OpenAPI)
 
 Testes: Jest e Supertest
 
-3. Requisitos e Instalação
+3. # Requisitos e Instalação
 3.1. Pré-requisitos
 Node.js instalado.
 
@@ -39,7 +39,7 @@ Instale as dependências:
 Bash
 npm install
 
-4. Configuração e Execução
+4. # Configuração e Execução
 4.1. Variáveis de Ambiente
 Crie um arquivo .env na raiz do projeto e configure as seguintes variáveis:
 
@@ -62,7 +62,7 @@ Produção: npm start (executa o servidor de forma estável).
 
 Testes: npm test (executa a suíte de testes com Jest).
 
-5. Estrutura do Projeto
+5. # Estrutura do Projeto
 O projeto segue uma estrutura modular para facilitar a manutenção:
 
 Plaintext
@@ -77,7 +77,7 @@ src/
 ├── routes/          # Definição de endpoints da API
 └── middleware/      # Interceptadores (Autenticação, Logs, etc.)
 
-6. Documentação e Uso da API
+6. # Documentação e Uso da API
 6.1. Swagger
 Com a aplicação rodando, acesse a documentação interativa em:
 http://localhost:3000/api-docs
@@ -98,7 +98,7 @@ Acesso a Rotas Protegidas
 Para rotas que exigem login, inclua o token no Header:
 Authorization: Bearer <seu_token_aqui>
 
-7. Boas Práticas Adotadas
+7. # Boas Práticas Adotadas
 Separação de Responsabilidades: Arquitetura inspirada em MVC com camada extra de Services.
 
 Segurança: Proteção de dados sensíveis via .env e senhas criptografadas com Bcrypt.
@@ -107,5 +107,5 @@ Escalabilidade: Estrutura de pastas preparada para o crescimento modular.
 
 Confiabilidade: Cobertura de funcionalidades através de testes automatizados.
 
-8. Licença
+8. # Licença
 Este projeto está sob a licença ISC.

@@ -183,7 +183,10 @@ router.put('/:id', authMiddleware, userController.update);
  *         required: true
  *         schema:
  *           type: integer
- *         description: O ID do usuário a ser deletado.on: 'Usuário não encontrado.'
+ *         description: O ID do usuário a ser deletado.
+ *         responses:
+ *              404:
+ *                   description: Usuário não encontrado
  */
 router.delete('/:id', authMiddleware, userController.delete);
 
